@@ -23,5 +23,5 @@ const reduxStore = createStore(
     applyMiddleware(logger)
 );
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={reduxStore}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
