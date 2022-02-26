@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function Feeling() {
 
@@ -36,7 +38,7 @@ function Feeling() {
                     placeholder='feeling?'
                 />
 
-                <button type='submit'>Next</button>
+<Button variant='text' type='submit' endIcon={<ArrowForwardIcon />}>Next</Button>
             </form>
 
         </>
