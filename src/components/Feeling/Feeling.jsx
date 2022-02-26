@@ -1,43 +1,44 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function Feeling() {
 
+    // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
+    const history = useHistory();
     
-    let [feeling, setFeeling] = useState({ feeling: 0});
+    // react useState for feeling
+    let [feeling, setFeeling] = useState('');
 
-    const handleFeelingChange = (event) => {
-        setFeeling({
-            feeling: feeling,
-        });
-    }
-
-    const addFeeling = (event) => {
+    // Next button triggers a dispatch of the input data to the redux store
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         dispatch({
-            type: "ADD_FEEDBACK",
+            type: "ADD_FEELING",
             payload: feeling
         })
 
-        setFeeling('');
+        // routes to the understanding form/component
+        history.push('/understanding');
     };
 
     return (
         <>
             <h2>How are you feeling today?</h2>
 
-            <form onSubmit={(event) => addFeeling(event)}>
+            <form onSubmit={handleSubmit}>
                 <input
-                    onChange={handleFeelingChange}
+                    value={feeling}
+                    onChange={(event) => setFeeling(event.target.value)}
                     type='number'
                     placeholder='feeling?'
                 />
 
                 <button type='submit'>Next</button>
             </form>
+
         </>
     )
 }
