@@ -7,12 +7,14 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import ButtonBack from '../ButtonBack/ButtonBack';
 
 function Understanding() {
 
     // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
     const history = useHistory();
+    const prevNav = '/'
 
     // react useState for understanding
     const [understanding, setUnderstanding] = useState('');
@@ -27,7 +29,7 @@ function Understanding() {
         })
 
         // if feedback is entered by the user
-        if(understanding !== '') {
+        if (understanding !== '') {
             // routes to the support form/component
             history.push('/support');
         } else {
@@ -38,47 +40,50 @@ function Understanding() {
 
     // created class creates a centered card on dom
     const useStyles = makeStyles(theme =>
-    createStyles({
-        root: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& > *": {
-                margin: 'auto',
-            },
+        createStyles({
+            root: {
+                display: "flex",
+                flexWrap: "wrap",
+                "& > *": {
+                    margin: 'auto',
+                },
 
-        },
-    })
+            },
+        })
     );
-    
-    
+
     const classes = useStyles();
     return (
-        <form onSubmit={handleSubmit} className={classes.root}>
-            <Card sx={{ minWidth: 275 }}>
-                <CardContent>
+        <>
+            <form onSubmit={handleSubmit} className={classes.root}>
+                <Card sx={{ minWidth: 275 }}>
+                    <CardContent>
 
-                    <h2>How well are you understanding the content?</h2>
+                        <h2>How well are you understanding the content?</h2>
 
-                    <TextField
-                        id="understanding"
-                        label="Understanding?"
-                        variant="standard"
-                        type='number'
-                        value={understanding}
-                        onChange={(event) => setUnderstanding(event.target.value)}
+                        <TextField
+                            id="understanding"
+                            label="Understanding?"
+                            variant="standard"
+                            type='number'
+                            value={understanding}
+                            onChange={(event) => setUnderstanding(event.target.value)}
                         />
 
-                    <Button
-                        variant='text'
-                        type='submit'
-                        endIcon={<ArrowForwardIcon />}
+                        <Button
+                            variant='text'
+                            type='submit'
+                            endIcon={<ArrowForwardIcon />}
                         >
-                        Next
-                    </Button>
-                    
-                </CardContent>
-            </Card>
-        </form>
+                            Next
+                        </Button>
+
+                    </CardContent>
+                </Card>
+            </form>
+
+            <ButtonBack prevNav={prevNav}/>
+        </>
     )
 }
 

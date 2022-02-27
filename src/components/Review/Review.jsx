@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux';
 import axios from 'axios'
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
+import ButtonBack from '../ButtonBack/ButtonBack';
 
 export default function Review() {
 
+    // assigning functions to easy-to-understand variables
     const history = useHistory();
+    const prevNav = '/comments'
 
     // react useState will combine feedback into one object
     const [feedback, setFeedback] = useState({});
@@ -51,20 +54,24 @@ export default function Review() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Review Your Feedback</h2>
+        <>
+            <form onSubmit={handleSubmit}>
+                <h2>Review Your Feedback</h2>
 
-            <p>Feelings: {{ feeling }.feeling}</p>
-            <p>Understanding: {{ understanding }.understanding}</p>
-            <p>Support: {{ support }.support}</p>
-            <p>Comments: {{ comments }.comments}</p>
+                <p>Feelings: {{ feeling }.feeling}</p>
+                <p>Understanding: {{ understanding }.understanding}</p>
+                <p>Support: {{ support }.support}</p>
+                <p>Comments: {{ comments }.comments}</p>
 
-            <Button
-                variant='outlined'
-                type='submit'
-            >
-                SUBMIT
-            </Button>
-        </form>
+                <Button
+                    variant='outlined'
+                    type='submit'
+                >
+                    SUBMIT
+                </Button>
+            </form>
+
+            <ButtonBack prevNav={prevNav}/>
+        </>
     )
 }

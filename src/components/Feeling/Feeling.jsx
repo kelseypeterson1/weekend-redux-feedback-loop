@@ -27,7 +27,7 @@ function Feeling() {
         })
 
         // if feedback is entered by the user
-        if(feeling !== '') {
+        if (feeling !== '') {
             // routes to the understanding form/component
             history.push('/understanding');
         } else {
@@ -38,51 +38,54 @@ function Feeling() {
 
     // created class creates a centered card on dom
     const useStyles = makeStyles(theme =>
-    createStyles({
-        root: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& > *": {
-                margin: 'auto',
-            },
+        createStyles({
+            root: {
+                display: "flex",
+                flexWrap: "wrap",
+                "& > *": {
+                    margin: 'auto',
+                },
 
-        },
-    })
+            },
+        })
     );
-    
-    
+
+
     const classes = useStyles();
     return (
-        <form onSubmit={handleSubmit} className={classes.root}>
-            <Card 
-                sx={{ minWidth: 275 }}
-                style={{ background: '#c7dbe6' }}
-            >
-                <CardContent>
+        <>
+            <form onSubmit={handleSubmit} className={classes.root}>
+                <Card
+                    sx={{ minWidth: 275 }}
+                    style={{ background: '#c7dbe6' }}
+                >
+                    <CardContent>
 
-                    <h2>How are you feeling today?</h2>
+                        <h2>How are you feeling today?</h2>
 
-                    <TextField
-                        // id="feeling"
-                        label="Feeling?"
-                        variant="standard"
-                        type='number'
-                        value={feeling}
-                        onChange={(event) => setFeeling(event.target.value)}
+                        <TextField
+                            // id="feeling"
+                            label="Feeling?"
+                            variant="standard"
+                            type='number'
+                            value={feeling}
+                            onChange={(event) => setFeeling(event.target.value)}
                         />
 
-                    <Button
-                        style={{ color: '#071108' }}
-                        variant='text'
-                        type='submit'
-                        endIcon={<ArrowForwardIcon />}
+                        <Button
+                            style={{ color: '#071108' }}
+                            variant='text'
+                            type='submit'
+                            endIcon={<ArrowForwardIcon />}
                         >
-                        Next
-                    </Button>
-                    
-                </CardContent>
-            </Card>
-        </form>
+                            Next
+                        </Button>
+
+                    </CardContent>
+                </Card>
+            </form>
+
+        </>
     )
 }
 
