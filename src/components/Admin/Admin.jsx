@@ -10,6 +10,8 @@ import Paper from '@mui/material/Paper';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AdminItem from '../AdminItem/AdminItem';
 
 export default function Admin({ fetchFeedback }) {
 
@@ -26,17 +28,6 @@ export default function Admin({ fetchFeedback }) {
         },
         [`&.${tableCellClasses.body}`]: {
             fontSize: 14,
-        },
-    }));
-
-    // MUI styling for the table rows
-    const StyledTableRow = styled(TableRow)(({ theme }) => ({
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.action.hover,
-        },
-        // hide last border
-        '&:last-child td, &:last-child th': {
-            border: 0,
         },
     }));
 
@@ -79,15 +70,16 @@ export default function Admin({ fetchFeedback }) {
                 </TableHead>
                 <TableBody>
                     {feedback.map((row) => (
-                        <StyledTableRow key={row.id}>
-                            <StyledTableCell component="th" scope="row">
-                                {row.feeling}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">{row.understanding}</StyledTableCell>
-                            <StyledTableCell align="right">{row.support}</StyledTableCell>
-                            <StyledTableCell align="right">{row.comments}</StyledTableCell>
-                            <StyledTableCell align="right">delete icon</StyledTableCell>
-                        </StyledTableRow>
+                        // <StyledTableRow key={row.id}>
+                        //     <StyledTableCell component="th" scope="row">
+                        //         {row.feeling}
+                        //     </StyledTableCell>
+                        //     <StyledTableCell align="right">{row.understanding}</StyledTableCell>
+                        //     <StyledTableCell align="right">{row.support}</StyledTableCell>
+                        //     <StyledTableCell align="right">{row.comments}</StyledTableCell>
+                        //     <StyledTableCell align="right"><DeleteIcon /></StyledTableCell>
+                        // </StyledTableRow>
+                        <AdminItem key={row.id} row={row}/>
                     ))}
                 </TableBody>
             </Table>
