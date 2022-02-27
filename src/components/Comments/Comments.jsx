@@ -51,7 +51,7 @@ function Comments() {
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
 
-                    <h2>How are you comments today?</h2>
+                    <h2>Any comments you want to leave?</h2>
 
                     <TextField
                         id="comments"

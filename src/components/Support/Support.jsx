@@ -51,7 +51,7 @@ function Support() {
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
 
-                    <h2>How are you support today?</h2>
+                    <h2>How well are you being supported?</h2>
 
                     <TextField
                         id="support"

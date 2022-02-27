@@ -41,6 +41,14 @@ const commentsReducer = (state = '', action) => {
     return state;
 }
 
+// reducer for the admin page
+const feedbackReducer = (state = [], action) => {
+    if (action.type === 'ADD_FEEDBACK') {
+        return action.payload
+    }
+    return state;
+}
+
 // create store
 const reduxStore = createStore(
     combineReducers({
@@ -48,6 +56,7 @@ const reduxStore = createStore(
         commentsReducer,
         supportReducer,
         understandingReducer,
+        feedbackReducer
     }),
     applyMiddleware(logger)
 );
