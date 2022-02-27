@@ -16,7 +16,7 @@ function Feeling() {
     const history = useHistory();
 
     // react useState for feeling
-    let [feeling, setFeeling] = useState('');
+    const [feeling, setFeeling] = useState('');
 
     // Next button triggers a dispatch of the input data to the redux store
     const handleSubmit = (event) => {
@@ -32,13 +32,13 @@ function Feeling() {
     };
 
     
-    const useStyles = makeStyles((theme: Theme) =>
+    const useStyles = makeStyles(theme =>
     createStyles({
         root: {
             display: "flex",
             flexWrap: "wrap",
             "& > *": {
-                margin: theme.spacing(3),
+                margin: 'auto',
             },
 
         },
