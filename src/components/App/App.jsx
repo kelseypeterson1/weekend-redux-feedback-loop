@@ -6,6 +6,7 @@ import Comments from '../Comments/Comments.jsx';
 import Feeling from '../Feeling/Feeling.jsx';
 import Support from '../Support/Support.jsx';
 import Understanding from '../Understanding/Understanding.jsx';
+import Review from '../Review/Review.jsx';
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
         <li>
           <Link to='/comments'>Comments</Link>
         </li>
+        <li>
+          <Link to='/review'>Review</Link>
+        </li>
       </ul>
       <div className='App'>
         <header className='App-header'>
@@ -42,6 +46,9 @@ function App() {
         </Route>
         <Route path="/comments">
           <Comments />
+        </Route>
+        <Route path="/review">
+          <Review />
         </Route>
 
       </div>
