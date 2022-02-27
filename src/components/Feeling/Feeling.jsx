@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 function Feeling() {
 
     // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
     const history = useHistory();
-    
+
     // react useState for feeling
-    let [feeling, setFeeling] = useState('');
+    const [feeling, setFeeling] = useState('');
 
     // Next button triggers a dispatch of the input data to the redux store
     const handleSubmit = (event) => {
@@ -24,22 +30,49 @@ function Feeling() {
         history.push('/understanding');
     };
 
+    // created class creates a centered card on dom
+    const useStyles = makeStyles(theme =>
+    createStyles({
+        root: {
+            display: "flex",
+            flexWrap: "wrap",
+            "& > *": {
+                margin: 'auto',
+            },
+
+        },
+    })
+    );
+    
+    
+    const classes = useStyles();
     return (
-        <>
-            <h2>How are you feeling today?</h2>
+        <form onSubmit={handleSubmit} className={classes.root}>
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    value={feeling}
-                    onChange={(event) => setFeeling(event.target.value)}
-                    type='number'
-                    placeholder='feeling?'
-                />
+                    <h2>How are you feeling today?</h2>
 
-                <button type='submit'>Next</button>
-            </form>
+                    <TextField
+                        id="feeling"
+                        label="Feeling?"
+                        variant="standard"
+                        type='number'
+                        value={feeling}
+                        onChange={(event) => setFeeling(event.target.value)}
+                        />
 
-        </>
+                    <Button
+                        variant='text'
+                        type='submit'
+                        endIcon={<ArrowForwardIcon />}
+                        >
+                        Next
+                    </Button>
+                    
+                </CardContent>
+            </Card>
+        </form>
     )
 }
 
