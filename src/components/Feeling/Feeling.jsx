@@ -6,8 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 function Feeling() {
 
@@ -31,7 +30,7 @@ function Feeling() {
         history.push('/understanding');
     };
 
-    
+    // created class creates a centered card on dom
     const useStyles = makeStyles(theme =>
     createStyles({
         root: {
@@ -49,7 +48,6 @@ function Feeling() {
     const classes = useStyles();
     return (
         <form onSubmit={handleSubmit} className={classes.root}>
-
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
 
@@ -71,6 +69,7 @@ function Feeling() {
                         >
                         Next
                     </Button>
+                    
                 </CardContent>
             </Card>
         </form>
