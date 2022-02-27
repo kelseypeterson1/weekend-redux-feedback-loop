@@ -48,12 +48,14 @@ export default function Review() {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Review Your Feedback</h2>
-            <ul>
-                <li>
-                </li>
-            </ul>
+
+            <p>Feelings: {{feeling}.feeling}</p>
+            <p>Understanding: {{understanding}.understanding}</p>
+            <p>Support: {{support}.support}</p>
+            <p>Comments: {{comments}.comments}</p>
+            
             <Button
-                variant='text'
+                variant='outlined'
                 type='submit'
             >
                 SUBMIT
