@@ -1,9 +1,14 @@
+body {
+  /* background-color: #c7dbe6; */
+  /* background-color: #bfb1c1; */
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #071708;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -20,9 +25,4 @@
 
 h4 {
   font-style: italic;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
 }

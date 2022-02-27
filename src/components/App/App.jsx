@@ -36,60 +36,48 @@ function App() {
 
       {/* MUI nav bar */}
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar
+          position="static"
+          style={{ background: '#547082' }}
+        >
           <Toolbar>
-            {/* <IconButton
-              size="large"
-              // edge="start"
-              // color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
+            <IconButton
+              onClick={handleClick}
             >
               <MenuIcon />
-            </IconButton> */}
-
-      <IconButton
-        size="large"
-        aria-label="menu"
-        sx={{ mr: 2 }}
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
-        <MenuIcon />
-      </IconButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to='/'>Start Application</Link>
-            </Typography>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              
-          <Link to='/Admin'>Admin</Link>
-            </Typography>
-        </MenuItem>
-      </Menu>
-            
-            {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Menu
-            </Typography> */}
-            {/* <Button color="inherit">Login</Button> */}
+            </IconButton>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>
+                <Typography variant="h8">
+                  <Link 
+                    to='/' 
+                    style={{ textDecoration:'none'}}
+                  >
+                    Start Application
+                  </Link>
+                </Typography>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Typography variant="h8">
+                  <Link 
+                    to='/Admin' 
+                    style={{ textDecoration:'none'}}
+                  >
+                    Admin
+                  </Link>
+                </Typography>
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </Box>
       {/* END MUI nav bar */}
+
 
       <div className='App'>
 
