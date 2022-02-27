@@ -57,8 +57,22 @@ export default function AdminItem({ row, fetchFeedback }) {
     // flags feedback row for further review
     const handleFlag = () => {
         console.log('flagged for review', row.id)
-        // toggles the feedback state
+        // posts change to database
         setFeedbackSelected(!feedbackSelected);
+        postFlag(row);
+    }
+
+    // PUT request to database !flagged
+    const postFlag = (row) => {
+        console.log('feedbackSelected is', feedbackSelected);
+        axios.put(`/feedback/${row.id}`, { flagged: feedbackSelected })
+            .then(response => {
+                // toggles the feedback state
+                fetchFeedback();
+            })
+            .catch(err => {
+                console.log('Error updating feedback', err);
+            })
     }
 
     // delete button calls this function
