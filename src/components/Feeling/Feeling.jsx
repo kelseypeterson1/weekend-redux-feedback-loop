@@ -3,13 +3,16 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 function Feeling() {
 
     // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
     const history = useHistory();
-    
+
     // react useState for feeling
     let [feeling, setFeeling] = useState('');
 
@@ -27,21 +30,31 @@ function Feeling() {
     };
 
     return (
-        <>
-            <h2>How are you feeling today?</h2>
+        <form onSubmit={handleSubmit}>
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    value={feeling}
-                    onChange={(event) => setFeeling(event.target.value)}
-                    type='number'
-                    placeholder='feeling?'
-                />
+                    <h2>How are you feeling today?</h2>
 
-<Button variant='text' type='submit' endIcon={<ArrowForwardIcon />}>Next</Button>
-            </form>
+                    <TextField
+                        id="feeling"
+                        label="Feeling?"
+                        variant="standard"
+                        type='number'
+                        value={feeling}
+                        onChange={(event) => setFeeling(event.target.value)}
+                    />
 
-        </>
+                    <Button
+                        variant='text'
+                        type='submit'
+                        endIcon={<ArrowForwardIcon />}
+                    >
+                        Next
+                    </Button>
+                </CardContent>
+            </Card>
+        </form>
     )
 }
 
