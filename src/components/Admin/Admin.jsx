@@ -64,6 +64,7 @@ export default function Admin({ fetchFeedback }) {
                         <StyledTableCell align="right">Understanding</StyledTableCell>
                         <StyledTableCell align="right">Support</StyledTableCell>
                         <StyledTableCell align="right">Comments</StyledTableCell>
+                        <StyledTableCell align="right">Flag</StyledTableCell>
                         <StyledTableCell align="right">Delete</StyledTableCell>
                     </TableRow>
                 </TableHead>
