@@ -69,6 +69,7 @@ export default function AdminItem({ row, fetchFeedback }) {
             <StyledTableCell align="right">
                 <Button
                     type="click"
+                    style={{color: '#364652'}}
                     endIcon={<DeleteIcon />}
                 >
                 </Button>

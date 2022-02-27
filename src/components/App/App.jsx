@@ -37,11 +37,12 @@ function App() {
       {/* MUI nav bar */}
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          style={{ background: '#547082' }}
+          style={{ background: '#071108' }}
           position="static"
         >
           <Toolbar>
             <IconButton
+              style={{ background: '#c7dbe6' }}
               onClick={handleClick}
             >
               <MenuIcon />
