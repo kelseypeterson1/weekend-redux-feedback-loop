@@ -7,6 +7,8 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+
 function Feeling() {
 
     // assigning functions to easy-to-understand variables
@@ -29,8 +31,25 @@ function Feeling() {
         history.push('/understanding');
     };
 
+    
+    const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: "flex",
+            flexWrap: "wrap",
+            "& > *": {
+                margin: theme.spacing(3),
+            },
+
+        },
+    })
+    );
+    
+    
+    const classes = useStyles();
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={classes.root}>
+
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
 
@@ -43,13 +62,13 @@ function Feeling() {
                         type='number'
                         value={feeling}
                         onChange={(event) => setFeeling(event.target.value)}
-                    />
+                        />
 
                     <Button
                         variant='text'
                         type='submit'
                         endIcon={<ArrowForwardIcon />}
-                    >
+                        >
                         Next
                     </Button>
                 </CardContent>
