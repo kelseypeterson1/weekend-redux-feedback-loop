@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
@@ -25,8 +26,8 @@ function Understanding() {
             payload: understanding
         })
 
-        // routes to the understanding form/component
-        history.push('/understanding');
+        // routes to the support form/component
+        history.push('/support');
     };
 
     // created class creates a centered card on dom
