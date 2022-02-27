@@ -10,8 +10,13 @@ import Paper from '@mui/material/Paper';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import FeedbackItem from '../FeedbackItem/FeedbackItem'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Admin() {
+
+    const dispatch = useDispatch();
+    const feedbackFromReducer = useSelector(store => store.feedbackReducer);
 
     // react useState for feedback from the database to be stored in
     const [feedback, setFeedback] = useState('');
@@ -45,6 +50,9 @@ export default function Admin() {
             url: '/feedback'
         }).then(response => {
             console.log('response.data is', response.data)
+            
+            // dispatch to the feedbackReducer
+            dispatch({ type: 'ADD_FEEDBACK', payload: response.data })
             setFeedback(response.data);
         }).catch(error => {
             console.log('error on GET', error);
@@ -55,6 +63,7 @@ export default function Admin() {
     useEffect(() => {
         console.log('in useEffect');
         fetchFeedback();
+
     }, []);
 
     return (
@@ -70,9 +79,9 @@ export default function Admin() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {/* {feedback.map((row) => (
-                        <FeedbackItem row={row}/>
-                    ))} */}
+                    {feedback.map((row) => (
+                        <FeedbackItem key ={row.id} row={row}/>
+                    ))}
                 </TableBody>
             </Table>
         </TableContainer>
