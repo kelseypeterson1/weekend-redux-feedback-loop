@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import axios from 'axios'
 import Button from '@mui/material/Button';
 
 export default function Review() {
-
+    // react useState will combine feedback into one object
     const [feedback, setFeedback] = useState({});
 
+    // getting values from the redux store
     const feeling = useSelector(store => store.feelingReducer);
     const understanding = useSelector(store => store.understandingReducer);
     const support = useSelector(store => store.supportReducer);
     const comments = useSelector(store => store.commentsReducer);
 
-    console.log('feeling is', {feeling})
-
-
+    // creating function to set feedback useState
     const combineFeedback = (() => {
-        
-        
         setFeedback({
             feeling: { feeling }.feeling,
             understanding: { understanding }.understanding,
@@ -27,16 +23,17 @@ export default function Review() {
         })
     })
 
+    // upon page load, the feedback useState will be updated
     useEffect(() => {
         console.log('in useEffect');
         combineFeedback();
     }, []);
 
+    // When the submit button is clicked...
     const handleSubmit = event => {
         event.preventDefault();
 
-        console.log('Adding feedback', feedback);
-
+        // feedback will be posted to the database
         axios.post('/feedback', feedback)
             .then(response => {
                 console.log('response is', response)
@@ -49,11 +46,11 @@ export default function Review() {
         <form onSubmit={handleSubmit}>
             <h2>Review Your Feedback</h2>
 
-            <p>Feelings: {{feeling}.feeling}</p>
-            <p>Understanding: {{understanding}.understanding}</p>
-            <p>Support: {{support}.support}</p>
-            <p>Comments: {{comments}.comments}</p>
-            
+            <p>Feelings: {{ feeling }.feeling}</p>
+            <p>Understanding: {{ understanding }.understanding}</p>
+            <p>Support: {{ support }.support}</p>
+            <p>Comments: {{ comments }.comments}</p>
+
             <Button
                 variant='outlined'
                 type='submit'

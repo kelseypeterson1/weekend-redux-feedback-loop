@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
 import Comments from '../Comments/Comments.jsx';
