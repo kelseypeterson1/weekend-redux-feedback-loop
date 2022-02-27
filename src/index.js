@@ -10,33 +10,33 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 // feeling reducer
-const feelingReducer = (state = {feeling: ''}, action) => {
+const feelingReducer = (state = '', action) => {
     if (action.type === 'ADD_FEELING') {
-        return {feeling: action.payload}
+        return action.payload
     }
     return state;
 }
 
 // understanding reducer
-const understandingReducer = (state = {understanding: ''}, action) => {
+const understandingReducer = (state = '', action) => {
     if (action.type === 'ADD_UNDERSTANDING') {
-        return {understanding: action.payload}
+        return action.payload
     }
     return state;
 }
 
 // support reducer
-const supportReducer = (state = {support: ''}, action) => {
+const supportReducer = (state = '', action) => {
     if (action.type === 'ADD_SUPPORT') {
-        return {support: action.payload}
+        return action.payload
     }
     return state;
 }
 
 // comments reducer
-const commentsReducer = (state = {comments: ''}, action) => {
+const commentsReducer = (state = '', action) => {
     if (action.type === 'ADD_COMMENTS') {
-        return {comments: action.payload}
+        return action.payload
     }
     return state;
 }

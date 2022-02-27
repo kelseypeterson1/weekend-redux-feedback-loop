@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -9,6 +9,9 @@ import CardContent from '@mui/material/CardContent';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 function Understanding() {
+
+    const feeling = useSelector(store => store.feelingReducer);
+    console.log('FEELING IS', {feeling})
 
     // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
