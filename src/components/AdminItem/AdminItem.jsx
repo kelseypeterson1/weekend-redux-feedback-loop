@@ -33,11 +33,10 @@ export default function AdminItem({ row, fetchFeedback }) {
 
     const handleDelete = () => {
         console.log('deleting', row.id)
-        deleteImage(row.id)
+        deleteFeedback(row.id)
     }
 
-    const deleteImage = (id) => {
-        console.log('Delete request made it back to app.jsx. Deleting:', id)
+    const deleteFeedback = (id) => {
         axios({
             method: 'DELETE',
             url: `/feedback/${id}`
@@ -62,10 +61,7 @@ export default function AdminItem({ row, fetchFeedback }) {
             <StyledTableCell align="right">
                 <Button
                     type="click"
-<<<<<<< HEAD
-=======
                     style={{color: '#364652'}}
->>>>>>> master
                     endIcon={<DeleteIcon />}
                 >
                 </Button>
