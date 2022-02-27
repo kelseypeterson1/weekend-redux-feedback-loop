@@ -18,16 +18,12 @@ export default function Review() {
 
     const combineFeedback = (() => {
         
-        console.log('feeling is:', {feeling})
-        console.log('understanding is:', {understanding})
-        console.log('support is:', {support})
-        console.log('comments is:', {comments})
         
         setFeedback({
-            feeling: { feeling },
-            understanding: { understanding },
-            support: { support },
-            comments: { comments }
+            feeling: { feeling }.feeling,
+            understanding: { understanding }.understanding,
+            support: { support }.support,
+            comments: { comments }.comments
         })
     })
 
@@ -41,7 +37,7 @@ export default function Review() {
 
         console.log('Adding feedback', feedback);
 
-        axios.post('/feedback', { feedback })
+        axios.post('/feedback', feedback)
             .then(response => {
                 console.log('response is', response)
             }).catch(err => {

@@ -10,9 +10,6 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 function Understanding() {
 
-    const feeling = useSelector(store => store.feelingReducer);
-    console.log('FEELING IS', {feeling})
-
     // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
     const history = useHistory();
