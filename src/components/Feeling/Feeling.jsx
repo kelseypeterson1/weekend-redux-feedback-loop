@@ -26,8 +26,14 @@ function Feeling() {
             payload: feeling
         })
 
-        // routes to the understanding form/component
-        history.push('/understanding');
+        // if feedback is entered by the user
+        if(feeling !== '') {
+            // routes to the understanding form/component
+            history.push('/understanding');
+        } else {
+            // else alert user
+            alert('Please enter feedback')
+        }
     };
 
     // created class creates a centered card on dom

@@ -26,8 +26,14 @@ function Understanding() {
             payload: understanding
         })
 
-        // routes to the support form/component
-        history.push('/support');
+        // if feedback is entered by the user
+        if(understanding !== '') {
+            // routes to the support form/component
+            history.push('/support');
+        } else {
+            // else alert user
+            alert('Please enter feedback')
+        }
     };
 
     // created class creates a centered card on dom

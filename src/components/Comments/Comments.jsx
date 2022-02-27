@@ -55,7 +55,7 @@ function Comments() {
 
                     <TextField
                         id="comments"
-                        label="Comments?"
+                        label="Comments (optional)"
                         variant="standard"
                         type='text'
                         multiline

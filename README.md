@@ -1,9 +1,21 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Weekend-Redux-Feedback-Loop
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This project utilizes forms and react components to post feedback from the user to a database. An admin view is available using the navigation menu at the top. React and redux were methods used to elevate the organization of components in the code.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+_Duration: Weekend Project_
+
+## Usage
+    - Clone files from github
+    - Run 'npm install'
+    - Create a database using the code on database.sql, port: 5432
+    - Get the server running with 'npm run server'
+    - Open up a separate terminal tab and run 'npm run client'
+    - When finished interacting with the project, shut down the server and client with ctrl + c
+
+## Built With
+Javascript, React, Redux, SQL, Node.js, Express, CSS, MUI, and HTML.
+
+## Support
+If you have suggestions or issues, please email me at [kelsey.peterson14@gmail.com].
