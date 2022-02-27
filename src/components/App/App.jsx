@@ -7,17 +7,19 @@ import Support from '../Support/Support.jsx';
 import Understanding from '../Understanding/Understanding.jsx';
 import Review from '../Review/Review.jsx';
 import SubmissionComplete from '../SubmissionComplete/SubmissionComplete.jsx';
+import Admin from '../Admin/Admin.jsx';
 
 function App() {
 
-  // remove nav bar when done with project
   return (
     <Router>
       <div className='App'>
+
         <header className='App-header'>
           <h1 className='App-title'>Feedback!</h1>
           <h4>Don't forget it!</h4>
         </header>
+
         <Route path="/" exact>
           <Feeling />
         </Route>
@@ -35,6 +37,9 @@ function App() {
         </Route>
         <Route path="/complete">
           <SubmissionComplete />
+        </Route>
+        <Route path="/admin">
+          <Admin />
         </Route>
 
       </div>
