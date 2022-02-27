@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios'
 import Button from '@mui/material/Button';
+import { useHistory } from 'react-router-dom';
 
 export default function Review() {
+
+    const history = useHistory();
+
     // react useState will combine feedback into one object
     const [feedback, setFeedback] = useState({});
 
@@ -40,6 +44,10 @@ export default function Review() {
             }).catch(err => {
                 console.log('error is', err)
             })
+
+        // routes to the submission complete page
+        history.push('/complete');
+
     }
 
     return (

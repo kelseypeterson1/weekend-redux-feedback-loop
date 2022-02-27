@@ -6,6 +6,7 @@ import Feeling from '../Feeling/Feeling.jsx';
 import Support from '../Support/Support.jsx';
 import Understanding from '../Understanding/Understanding.jsx';
 import Review from '../Review/Review.jsx';
+import SubmissionComplete from '../SubmissionComplete/SubmissionComplete.jsx';
 
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/review">
           <Review />
+        </Route>
+        <Route path="/complete">
+          <SubmissionComplete />
         </Route>
 
       </div>
