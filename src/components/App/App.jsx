@@ -13,7 +13,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
@@ -31,14 +30,15 @@ function App() {
     setAnchorEl(null);
   };
 
+
   return (
     <Router>
 
       {/* MUI nav bar */}
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
           style={{ background: '#547082' }}
+          position="static"
         >
           <Toolbar>
             <IconButton
@@ -54,9 +54,9 @@ function App() {
             >
               <MenuItem onClick={handleClose}>
                 <Typography variant="h8">
-                  <Link 
-                    to='/' 
-                    style={{ textDecoration:'none'}}
+                  <Link
+                    to='/'
+                    style={{ textDecoration: 'none' }}
                   >
                     Start Application
                   </Link>
@@ -64,9 +64,9 @@ function App() {
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <Typography variant="h8">
-                  <Link 
-                    to='/Admin' 
-                    style={{ textDecoration:'none'}}
+                  <Link
+                    to='/Admin'
+                    style={{ textDecoration: 'none' }}
                   >
                     Admin
                   </Link>
@@ -82,8 +82,8 @@ function App() {
       <div className='App'>
 
         <header className='App-header'>
-          <h1 className='App-title'>Feedback!</h1>
-          <h4>Don't forget it!</h4>
+          <h1 className='App-title'>Feedback</h1>
+          <h4>Feedback for everyone</h4>
         </header>
 
         <Route path="/" exact>
