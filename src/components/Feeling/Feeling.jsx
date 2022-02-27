@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import ButtonForward from '../ButtonForward/ButtonForward';
 
 function Feeling() {
 
@@ -72,14 +71,7 @@ function Feeling() {
                             onChange={(event) => setFeeling(event.target.value)}
                         />
 
-                        <Button
-                            style={{ color: '#071108' }}
-                            variant='text'
-                            type='submit'
-                            endIcon={<ArrowForwardIcon />}
-                        >
-                            Next
-                        </Button>
+                        <ButtonForward />
 
                     </CardContent>
                 </Card>

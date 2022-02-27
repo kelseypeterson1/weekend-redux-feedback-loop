@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import ButtonBack from '../ButtonBack/ButtonBack';
+import ButtonForward from '../ButtonForward/ButtonForward';
 
 function Support() {
-    
+
     // assigning functions to easy-to-understand variables
     const dispatch = useDispatch();
     const history = useHistory();
@@ -58,7 +57,10 @@ function Support() {
     return (
         <>
             <form onSubmit={handleSubmit} className={classes.root}>
-                <Card sx={{ minWidth: 275 }}>
+                <Card
+                    sx={{ minWidth: 275 }}
+                    style={{ background: '#c7dbe6' }}
+                >
                     <CardContent>
 
                         <h2>How well are you being supported?</h2>
@@ -72,19 +74,13 @@ function Support() {
                             onChange={(event) => setSupport(event.target.value)}
                         />
 
-                        <Button
-                            variant='text'
-                            type='submit'
-                            endIcon={<ArrowForwardIcon />}
-                        >
-                            Next
-                        </Button>
+                        <ButtonForward />
 
                     </CardContent>
                 </Card>
             </form>
 
-            <ButtonBack prevNav={prevNav}/>
+            <ButtonBack prevNav={prevNav} />
         </>
     )
 }
