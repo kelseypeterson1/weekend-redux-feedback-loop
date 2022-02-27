@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Button from '@mui/material/Button';
+import { useState } from 'react';
+import FlagIcon from '@mui/icons-material/Flag';
 
 export default function AdminItem({ row, fetchFeedback }) {
 
@@ -30,14 +32,58 @@ export default function AdminItem({ row, fetchFeedback }) {
         },
     }));
 
+    // Creates use state for flag
+    const [feedbackSelected, setFeedbackSelected] = useState(false);
 
-    const handleDelete = () => {
-        console.log('deleting', row.id)
-        deleteImage(row.id)
+    // checks if feedback is flagged
+    const checkFlag = () => {
+        console.log('in checkFlag function')
+        if (feedbackSelected === false) {
+            return <Button
+                type="button"
+                style={{ color: '#364652' }}
+                endIcon={<FlagIcon />}
+            >
+            </Button>
+        } else {
+            return <Button
+                type="button"
+                style={{ color: 'red' }}
+                endIcon={<FlagIcon />}
+            >
+            </Button>
+        }
     }
 
-    const deleteImage = (id) => {
-        console.log('Delete request made it back to app.jsx. Deleting:', id)
+    // flags feedback row for further review
+    const handleFlag = () => {
+        console.log('flagged for review', row.id)
+        // posts change to database
+        setFeedbackSelected(!feedbackSelected);
+        postFlag(row);
+    }
+
+    // PUT request to database !flagged
+    const postFlag = (row) => {
+        console.log('feedbackSelected is', feedbackSelected);
+        axios.put(`/feedback/${row.id}`, { flagged: feedbackSelected })
+            .then(response => {
+                // toggles the feedback state
+                fetchFeedback();
+            })
+            .catch(err => {
+                console.log('Error updating feedback', err);
+            })
+    }
+
+    // delete button calls this function
+    const handleDelete = () => {
+        console.log('deleting', row.id)
+        deleteFeedback(row.id)
+    }
+
+    // deletes feedback from the database
+    const deleteFeedback = (id) => {
         axios({
             method: 'DELETE',
             url: `/feedback/${id}`
@@ -49,10 +95,10 @@ export default function AdminItem({ row, fetchFeedback }) {
                 console.log('DELETE error is', err)
             })
     }
-    
+
 
     return (
-        <StyledTableRow key={row.id} onClick={handleDelete}>
+        <StyledTableRow key={row.id}>
             <StyledTableCell component="th" scope="row">
                 {row.feeling}
             </StyledTableCell>
@@ -60,12 +106,19 @@ export default function AdminItem({ row, fetchFeedback }) {
             <StyledTableCell align="right">{row.support}</StyledTableCell>
             <StyledTableCell align="right">{row.comments}</StyledTableCell>
             <StyledTableCell align="right">
-                <Button
-                    type="click"
-                    style={{color: '#364652'}}
-                    endIcon={<DeleteIcon />}
-                >
-                </Button>
+                <form onClick={handleFlag}>
+                    {checkFlag()}
+                </form>
+            </StyledTableCell>
+            <StyledTableCell align="right">
+                <form onClick={handleDelete}>
+                    <Button
+                        type="button"
+                        style={{ color: '#364652' }}
+                        endIcon={<DeleteIcon />}
+                    >
+                    </Button>
+                </form>
             </StyledTableCell>
         </StyledTableRow>
     )
