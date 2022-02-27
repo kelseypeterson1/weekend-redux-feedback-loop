@@ -12,29 +12,12 @@ function App() {
   // remove nav bar when done with project
   return (
     <Router>
-      <ul>
-        <li>
-          <Link to='/feeling'>Feeling</Link>
-        </li>
-        <li>
-          <Link to='/understanding'>Understanding</Link>
-        </li>
-        <li>
-          <Link to='/support'>Support</Link>
-        </li>
-        <li>
-          <Link to='/comments'>Comments</Link>
-        </li>
-        <li>
-          <Link to='/review'>Review</Link>
-        </li>
-      </ul>
       <div className='App'>
         <header className='App-header'>
           <h1 className='App-title'>Feedback!</h1>
           <h4>Don't forget it!</h4>
         </header>
-        <Route path="/feeling" exact>
+        <Route path="/" exact>
           <Feeling />
         </Route>
         <Route path="/understanding">
