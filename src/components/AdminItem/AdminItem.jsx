@@ -5,7 +5,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FlagIcon from '@mui/icons-material/Flag';
 
 export default function AdminItem({ row, fetchFeedback }) {
@@ -33,11 +33,10 @@ export default function AdminItem({ row, fetchFeedback }) {
     }));
 
     // Creates use state for flag
-    const [feedbackSelected, setFeedbackSelected] = useState(false);
+    const [feedbackSelected, setFeedbackSelected] = useState(row.flagged);
 
     // checks if feedback is flagged
     const checkFlag = () => {
-        console.log('in checkFlag function')
         if (feedbackSelected === false) {
             return <Button
                 type="button"

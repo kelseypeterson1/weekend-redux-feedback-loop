@@ -59,13 +59,16 @@ router.put('/:id', (req, res) => {
 
   let flagToUpdate = req.body.flagged;
   console.log('flagToUpdate is', flagToUpdate);
-
+  
   // adjust to uppercase for pg
-  if (flagToUpdate == false) {
-    let flagToUpdate = 'FALSE'
+  if (flagToUpdate == 'false') {
+    console.log('is false')
+    flagToUpdate = 'FALSE'
   } else {
-    let flagToUpdate = 'TRUE'
+    console.log('is true')
+    flagToUpdate = 'TRUE'
   }
+  console.log('flagToUpdate after caps is', flagToUpdate);
 
   let sqlText = `
       UPDATE feedback
