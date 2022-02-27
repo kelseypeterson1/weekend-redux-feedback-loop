@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
+<<<<<<< HEAD
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -10,6 +11,11 @@ import Paper from '@mui/material/Paper';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+=======
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import axios from 'axios';
+>>>>>>> master
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 
@@ -69,6 +75,10 @@ export default function AdminItem({ row, fetchFeedback }) {
             <StyledTableCell align="right">
                 <Button
                     type="click"
+<<<<<<< HEAD
+=======
+                    style={{color: '#364652'}}
+>>>>>>> master
                     endIcon={<DeleteIcon />}
                 >
                 </Button>

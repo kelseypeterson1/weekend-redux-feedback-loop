@@ -1,12 +1,20 @@
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export default function SubmissionComplete() {
 
+    // assigning functions to easy-to-understand variables
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        // clears data in the store
+        dispatch({
+            type: "RESET_DATA"
+        })
 
         // routes to a new form
         history.push('/');

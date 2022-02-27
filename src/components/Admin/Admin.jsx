@@ -22,8 +22,8 @@ export default function Admin({ fetchFeedback }) {
     // MUI styling for the table cells
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
-            backgroundColor: theme.palette.common.black,
-            color: theme.palette.common.white,
+            backgroundColor: '#c7dbe6',
+            color: '#071108',
         },
         [`&.${tableCellClasses.body}`]: {
             fontSize: 14,

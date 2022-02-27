@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import ButtonForward from '../ButtonForward/ButtonForward';
 
 function Feeling() {
 
@@ -26,53 +25,59 @@ function Feeling() {
             payload: feeling
         })
 
-        // routes to the understanding form/component
-        history.push('/understanding');
+        // if feedback is entered by the user
+        if (feeling !== '') {
+            // routes to the understanding form/component
+            history.push('/understanding');
+        } else {
+            // else alert user
+            alert('Please enter feedback')
+        }
     };
 
     // created class creates a centered card on dom
     const useStyles = makeStyles(theme =>
-    createStyles({
-        root: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& > *": {
-                margin: 'auto',
-            },
+        createStyles({
+            root: {
+                display: "flex",
+                flexWrap: "wrap",
+                "& > *": {
+                    margin: 'auto',
+                },
 
-        },
-    })
+            },
+        })
     );
-    
-    
+
+
     const classes = useStyles();
     return (
-        <form onSubmit={handleSubmit} className={classes.root}>
-            <Card sx={{ minWidth: 275 }}>
-                <CardContent>
+        <>
+            <form onSubmit={handleSubmit} className={classes.root}>
+                <Card
+                    sx={{ minWidth: 275 }}
+                    style={{ background: '#c7dbe6' }}
+                >
+                    <CardContent>
 
-                    <h2>How are you feeling today?</h2>
+                        <h2>How are you feeling today?</h2>
 
-                    <TextField
-                        // id="feeling"
-                        label="Feeling?"
-                        variant="standard"
-                        type='number'
-                        value={feeling}
-                        onChange={(event) => setFeeling(event.target.value)}
+                        <TextField
+                            // id="feeling"
+                            label="Feeling?"
+                            variant="standard"
+                            type='number'
+                            value={feeling}
+                            onChange={(event) => setFeeling(event.target.value)}
                         />
 
-                    <Button
-                        variant='text'
-                        type='submit'
-                        endIcon={<ArrowForwardIcon />}
-                        >
-                        Next
-                    </Button>
-                    
-                </CardContent>
-            </Card>
-        </form>
+                        <ButtonForward />
+
+                    </CardContent>
+                </Card>
+            </form>
+
+        </>
     )
 }
 
