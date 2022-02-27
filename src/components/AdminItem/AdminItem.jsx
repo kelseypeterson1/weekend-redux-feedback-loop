@@ -11,8 +11,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 
-export default function AdminItem({ row }) {
+export default function AdminItem({ row, fetchFeedback }) {
 
     // MUI styling for the table rows
     const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -36,15 +37,42 @@ export default function AdminItem({ row }) {
         },
     }));
 
+
+    const handleDelete = () => {
+        console.log('deleting', row.id)
+        deleteImage(row.id)
+    }
+
+    const deleteImage = (id) => {
+        console.log('Delete request made it back to app.jsx. Deleting:', id)
+        axios({
+            method: 'DELETE',
+            url: `/feedback/${id}`
+        })
+            .then((response) => {
+                console.log('DELETE response.data is', response.data)
+                fetchFeedback();
+            }).catch((err) => {
+                console.log('DELETE error is', err)
+            })
+    }
+    
+
     return (
-        <StyledTableRow key={row.id}>
+        <StyledTableRow key={row.id} onClick={handleDelete}>
             <StyledTableCell component="th" scope="row">
                 {row.feeling}
             </StyledTableCell>
             <StyledTableCell align="right">{row.understanding}</StyledTableCell>
             <StyledTableCell align="right">{row.support}</StyledTableCell>
             <StyledTableCell align="right">{row.comments}</StyledTableCell>
-            <StyledTableCell align="right"><DeleteIcon /></StyledTableCell>
+            <StyledTableCell align="right">
+                <Button
+                    type="click"
+                    endIcon={<DeleteIcon />}
+                >
+                </Button>
+            </StyledTableCell>
         </StyledTableRow>
     )
 }
