@@ -48,7 +48,10 @@ function Feeling() {
     const classes = useStyles();
     return (
         <form onSubmit={handleSubmit} className={classes.root}>
-            <Card sx={{ minWidth: 275 }}>
+            <Card 
+                sx={{ minWidth: 275 }}
+                style={{ background: '#c7dbe6' }}
+            >
                 <CardContent>
 
                     <h2>How are you feeling today?</h2>
@@ -63,6 +66,7 @@ function Feeling() {
                         />
 
                     <Button
+                        style={{ color: '#071108' }}
                         variant='text'
                         type='submit'
                         endIcon={<ArrowForwardIcon />}
