@@ -43,6 +43,8 @@ export default function Admin({ fetchFeedback }) {
 
             // set useState for feedback
             setFeedback(response.data);
+
+            console.log('feedbackReducer has data of:', response.data)
         }).catch(error => {
             console.log('error on GET', error);
         });

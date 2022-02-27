@@ -35,18 +35,19 @@ export default function AdminItem({ row, fetchFeedback }) {
     // Creates use state for flag
     const [feedbackSelected, setFeedbackSelected] = useState(false);
 
+    // checks if feedback is flagged
     const checkFlag = () => {
         console.log('in checkFlag function')
         if (feedbackSelected === false) {
             return <Button
-                type="click"
+                type="button"
                 style={{ color: '#364652' }}
                 endIcon={<FlagIcon />}
             >
             </Button>
         } else {
             return <Button
-                type="submit"
+                type="button"
                 style={{ color: 'red' }}
                 endIcon={<FlagIcon />}
             >
@@ -97,21 +98,27 @@ export default function AdminItem({ row, fetchFeedback }) {
 
 
     return (
-        <StyledTableRow key={row.id} onSubmit={handleDelete} onClick={handleFlag}>
+        <StyledTableRow key={row.id}>
             <StyledTableCell component="th" scope="row">
                 {row.feeling}
             </StyledTableCell>
             <StyledTableCell align="right">{row.understanding}</StyledTableCell>
             <StyledTableCell align="right">{row.support}</StyledTableCell>
             <StyledTableCell align="right">{row.comments}</StyledTableCell>
-            <StyledTableCell align="right">{checkFlag()}</StyledTableCell>
             <StyledTableCell align="right">
-                <Button
-                    type="submit"
-                    style={{ color: '#364652' }}
-                    endIcon={<DeleteIcon />}
-                >
-                </Button>
+                <form onClick={handleFlag}>
+                    {checkFlag()}
+                </form>
+            </StyledTableCell>
+            <StyledTableCell align="right">
+                <form onClick={handleDelete}>
+                    <Button
+                        type="button"
+                        style={{ color: '#364652' }}
+                        endIcon={<DeleteIcon />}
+                    >
+                    </Button>
+                </form>
             </StyledTableCell>
         </StyledTableRow>
     )
