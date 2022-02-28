@@ -29,10 +29,7 @@ function Feeling() {
         if (feeling !== '') {
             // routes to the understanding form/component
             history.push('/understanding');
-        } else {
-            // else alert user
-            alert('Please enter feedback')
-        }
+        } 
     };
 
     // created class creates a centered card on dom
@@ -63,7 +60,8 @@ function Feeling() {
                         <h2>How are you feeling today?</h2>
 
                         <TextField
-                            // id="feeling"
+                            id="feeling"
+                            required
                             label="Feeling?"
                             variant="standard"
                             type='number'

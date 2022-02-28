@@ -31,10 +31,7 @@ function Support() {
         if (support !== '') {
             // routes to the comments form/component
             history.push('/comments');
-        } else {
-            // else alert user
-            alert('Please enter feedback')
-        }
+        } 
     };
 
 
@@ -66,6 +63,7 @@ function Support() {
                         <h2>How well are you being supported?</h2>
 
                         <TextField
+                            required
                             id="support"
                             label="Support?"
                             variant="standard"

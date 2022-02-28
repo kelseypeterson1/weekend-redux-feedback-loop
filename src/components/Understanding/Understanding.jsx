@@ -31,10 +31,7 @@ function Understanding() {
         if (understanding !== '') {
             // routes to the support form/component
             history.push('/support');
-        } else {
-            // else alert user
-            alert('Please enter feedback')
-        }
+        } 
     };
 
     // created class creates a centered card on dom
@@ -64,6 +61,7 @@ function Understanding() {
                         <h2>How well are you understanding the content?</h2>
 
                         <TextField
+                            required
                             id="understanding"
                             label="Understanding?"
                             variant="standard"
