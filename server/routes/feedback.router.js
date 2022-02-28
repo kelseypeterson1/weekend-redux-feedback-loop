@@ -61,7 +61,7 @@ router.put('/:id', (req, res) => {
   console.log('flagToUpdate is', flagToUpdate);
   
   // adjust to uppercase for pg
-  if (flagToUpdate == 'false') {
+  if (flagToUpdate == false) {
     console.log('is false')
     flagToUpdate = 'FALSE'
   } else {
