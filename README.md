@@ -4,6 +4,10 @@
 
 This project utilizes forms and react components to post feedback from the user to a database. An admin view is available using the navigation menu at the top. React and redux were methods used to elevate the organization of components in the code.
 
+## Screen Recording
+
+![](walkthrough.gif)
+
 _Duration: Weekend Project_
 
 ## Usage
